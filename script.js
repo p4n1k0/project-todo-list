@@ -16,7 +16,7 @@ function adicionaItem() {
 adicionaItem();
 
 //Muda a cor de bg ao clicar em algum item da lista
-const listaFilha = document.getElementsByTagName('li');
+const listaFilha = document.getElementsByTagName('li'); // elemento html
 function mudaBgLi() {
     listaPai.addEventListener('click', function (event) {
         
@@ -32,3 +32,18 @@ function mudaBgLi() {
     });
 }
 mudaBgLi();
+
+//Riscando tarefa completada
+//ref: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+function completaTarefa() {
+    listaPai.addEventListener('dblclick', function (event) {
+        const elemento = event.target;
+
+        if (elemento.className.includes('completed')) {
+            elemento.classList.remove('completed');
+        } else {
+            elemento.classList.add('completed');
+        }
+    });
+} 
+completaTarefa();   
