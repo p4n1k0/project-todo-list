@@ -3,23 +3,32 @@ let botao = document.getElementById('criar-tarefa');
 let input = document.getElementById('texto-tarefa');
 let listaPai = document.getElementById('lista-tarefas');
 
-//Adiciona tarefas a listaOl usando input e button
+//Adiciona tarefas a listaPai usando input e button
 function adicionaItem() {
-    const li = document.createElement('li');
-    li.innerHTML = input.value;
-    listaPai.appendChild(li);
-    input.value = '';
+    botao.addEventListener('click', function (){
+        const criaLi = document.createElement('li');
+        listaPai.appendChild(criaLi);
+        criaLi.innerText = input.value;
+        input.value = ''; 
+    });
+} 
 
+adicionaItem();
+
+//Muda a cor de bg ao clicar em algum item da lista
+const listaFilha = document.getElementsByTagName('li');
+function mudaBgLi() {
+    listaPai.addEventListener('click', function (event) {
+        
+        for (let i = 0; i < listaFilha.length; i += 1) {
+            
+            if (listaFilha[i].className === 'gray') {
+                listaFilha[i].classList.remove('gray')
+            }
+            if (listaFilha[i].className !== 'gray') {
+                event.target.classList.add('gray');
+            }
+        }
+    });
 }
-botao.addEventListener('click', adicionaItem);
-
-function selecionaElemento(elemento) {
-    const el = elemento.target;
-
-    if (el.tagName === 'Li') {
-        el.style.backgroundColor = 'gray';
-    }
-}
-document.addEventListener('click', selecionaElemento);
-
-
+mudaBgLi();
