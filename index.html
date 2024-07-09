@@ -10,21 +10,20 @@
 </head>
 
 <body>
-    <header>
-        Minha Lista de Tarefas
-    </header>
-    <p id="funcionamento">
-        Clique duas vezes em um item para marcá-lo como completo
-    </p>
-    <input id="texto-tarefa">
+    <header>Minha Lista de Tarefas</header>
+    <section id="conteudo">
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo
+        </p>
+        <section id="topo">
+            <input type="text" id="texto-tarefa" placeholder="Adicione uma nova tarefa">
+            <button id="criar-tarefa">
+                <i class="fa fa-plus"></i>
+            </button>
+            <div>
+        </section>
+        <ol id="lista-tarefas"></ol>
+    </section>
     <div>
-        <ol id="lista-tarefas">
-        </ol>
-    </div>
-    <div>
-        <button id="criar-tarefa">
-            Add
-        </button>
         <button id="apaga-tudo">
         </button>
     </div>
