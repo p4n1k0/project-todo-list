@@ -7,9 +7,9 @@ body {
 }
 
 header {
-    margin-top: 20px;
-    margin-left: 40px;
-    font-size: 30px;
+    margin-top: 40px;
+    margin-left: 30px;
+    font-size: 50px;
     text-align: center;
 }
 
@@ -20,7 +20,7 @@ header {
 #conteudo {
     margin: 0 auto;
     width: 100%;
-    max-width: 450px;
+    max-width: 650px;
     margin-top: 50px;
     margin-bottom: 50px;
     background-color: #2b2a2a;
@@ -38,7 +38,7 @@ header {
     width: 350px;
     padding: 15px;
     border-radius: 12px;
-    border: 2px solid brown;
+    border: 2px solid #163341;
     outline: none;
     font-size: 16px;
     background-color: #191818;
@@ -48,7 +48,7 @@ header {
 #topo button {
     width: 45px;
     border-radius: 12px;
-    border: 2px solid brown;
+    border: 2px solid #163341;
     outline: none;
     font-size: 16px;
     background-color: #191818;
@@ -68,7 +68,6 @@ header {
 
 #lista-tarefas li {
     padding: 20px;
-    background: #191818;
     border-radius: 12px;
     display: flex;
     margin-top: 10px;

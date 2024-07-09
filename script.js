@@ -1,5 +1,8 @@
 const taskIpt = document.getElementById('texto-tarefa');
 const taskBtn = document.getElementById('criar-tarefa');
+const deleteTaskBtn = document.getElementById('apaga-tudo');
+const svBtn = document.getElementById('salvar-tarefas');
+const rmBtn = document.getElementById('remover-finalizados');
 const taskList = document.getElementById('lista-tarefas');
 
 
@@ -9,10 +12,6 @@ taskIpt.addEventListener('click', (e) => {
   }
   addTask(task)
 });
-
-function idGenerate() {
-  return Math.floor(Math.random() * 5000);
-}
 
 function addTask(task) {
   let li = createTagLi(task);
@@ -25,10 +24,7 @@ function createTagLi(task) {
   let spam = document.createElement('span');
   spam.classList.add('textoTarefa');
   spam.innerHTML = task.name;
-
-  let div = document.createElement('div');
   li.appendChild(spam);
-  li.appendChild(div)
 
   return li;
 }
