@@ -1,22 +1,32 @@
 const taskIpt = document.getElementById('texto-tarefa');
 const taskBtn = document.getElementById('criar-tarefa');
-const deleteTaskBtn = document.getElementById('apaga-tudo');
+taskBtn.addEventListener('click', addTask);
+
+const rmTaskBtn = document.getElementById('apaga-tudo');
 const svBtn = document.getElementById('salvar-tarefas');
 const rmBtn = document.getElementById('remover-finalizados');
 const taskList = document.getElementById('lista-tarefas');
 
 
-taskIpt.addEventListener('click', (e) => {
-  let task = {
-    name: taskIpt.value,
-  }
-  addTask(task)
-});
+function clickTask(click) {
+  let clicked = document.querySelectorAll('li');
 
-function addTask(task) {
-  let li = createTagLi(task);
-  taskList.appendChild(li);
-  taskIpt.value = '';
+  for (i = 0; i < clicked.length; i += 1) {
+    clicked[i].classList.remove('selectedItem');
+    click.target.classList.add('selectedItem')
+  }
+}
+
+// Fonte clickTask Luis Castro trybe
+
+function addTask() {
+  let newTask = document.getElementById('texto-tarefa');
+  let taskList = document.getElementById('lista-tarefas');
+  let task = document.createElement('li');
+  task.innerText = newTask.value;
+  task.addEventListener('click', clickTask);
+  taskList.appendChild(task);
+  newTask.value = '';
 }
 
 function createTagLi(task) {
@@ -28,3 +38,33 @@ function createTagLi(task) {
 
   return li;
 }
+
+function color(click) {
+  let itemsList = document.querySelectorAll('li');
+  for (let i = 0; i < itemsList.length; i += 1) {
+    itemsList[i].classList.remove('set')
+  }
+  click.target.classList.add('set');
+}
+taskList.target.classList('click', color);
+
+function finalizads(e) {
+  let iCompleted = e.target;
+  if (iCompleted.classList.contains('completed')) {
+    e.target.classList.remove('completed');
+  } else {
+    e.target.classList.add('completed');
+  }
+}
+taskList.addEventListener('dblclick', finalizads);
+
+rmTaskBtn.addEventListener('click', function() {
+  let checked = window.confirm('Tem certeza que deseja excluir?!');
+  if(checked) {
+    taskList.innerHTML = '';
+    localStorage.removeItem('lista')
+  }
+})
+rmBtn.addEventListener('click', function() {
+  let finalizads = document.querySelectorAll('.completed');
+})

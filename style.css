@@ -73,6 +73,22 @@ header {
     margin-top: 10px;
 }
 
-#lista-tarefas li:hover {
-    background-color: gray;
+#btns {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+#btns button {
+    background-color: #d5f1e2;
+    cursor: pointer;
+}
+
+.set {
+    background-color: rgb(128, 128, 126);
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
 }
