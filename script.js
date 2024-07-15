@@ -59,6 +59,7 @@ rmSelectedBtn.addEventListener('click', () => {
   taskSelected.remove()
 });
 
+
 function createTagLi(task) {
   let li = document.createElement('li');
   let spam = document.createElement('span');
@@ -77,7 +78,7 @@ function finalizads(e) {
     e.target.classList.add('completed');
   }
 }
-taskList.addEventListener('dblclick', finalizads);
+taskList.addEventListener('dbclick', finalizads);
 
 rmBtn.addEventListener('click', function () {
   let finalizads = document.querySelectorAll('.completed');
