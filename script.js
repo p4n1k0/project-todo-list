@@ -1,33 +1,63 @@
-const taskIpt = document.getElementById('texto-tarefa');
-const taskBtn = document.getElementById('criar-tarefa');
+let newTask = document.getElementById('texto-tarefa');
+let taskList = document.getElementById('lista-tarefas');
+let taskBtn = document.getElementById('criar-tarefa');
 taskBtn.addEventListener('click', addTask);
 
-const rmTaskBtn = document.getElementById('apaga-tudo');
-const svBtn = document.getElementById('salvar-tarefas');
-const rmBtn = document.getElementById('remover-finalizados');
-const taskList = document.getElementById('lista-tarefas');
+let rmTasksBtn = document.getElementById('apaga-tudo');
+let svBtn = document.getElementById('salvar-tarefas');
+let rmFinBtn = document.getElementById('remover-finalizados');
+const rmSelectedBtn = document.getElementById('remover-selecionado')
 
+
+rmTasksBtn.addEventListener('click', function () {
+  let confirmed = window.confirm('Tem certeza que deseja excluir?');
+
+  if (confirmed) {
+    taskList.innerText = '';
+    localStorage.removeItem('lista');
+  }
+});
 
 function clickTask(click) {
-  let clicked = document.querySelectorAll('li');
+  const clicked = document.querySelectorAll('li');
 
-  for (i = 0; i < clicked.length; i += 1) {
+  for (let i = 0; i < clicked.length; i += 1) {
     clicked[i].classList.remove('selectedItem');
     click.target.classList.add('selectedItem')
   }
 }
 
-// Fonte clickTask Luis Castro trybe
+function lineTask(click) {
+  if (click.target.classList.contains('completed')) {
+    click.target.classList.remove('completed');
+  } else {
+    click.target.classList.add('completed');
+  }
+}
+
+// Fonte clickTask e lineTask Luis Castro trybe
 
 function addTask() {
-  let newTask = document.getElementById('texto-tarefa');
-  let taskList = document.getElementById('lista-tarefas');
   let task = document.createElement('li');
   task.innerText = newTask.value;
   task.addEventListener('click', clickTask);
+  task.addEventListener('dblclick', lineTask);
   taskList.appendChild(task);
   newTask.value = '';
 }
+
+rmFinBtn.addEventListener('click', function () {
+  let element = document.querySelectorAll('.completed');
+
+  for (let t = 0; t < element.length; t += 1) {
+    element[t].remove();
+  };
+});
+
+rmSelectedBtn.addEventListener('click', () => {
+  const taskSelected = document.querySelector('.selectedItem');
+  taskSelected.remove()
+});
 
 function createTagLi(task) {
   let li = document.createElement('li');
@@ -39,15 +69,6 @@ function createTagLi(task) {
   return li;
 }
 
-function color(click) {
-  let itemsList = document.querySelectorAll('li');
-  for (let i = 0; i < itemsList.length; i += 1) {
-    itemsList[i].classList.remove('set')
-  }
-  click.target.classList.add('set');
-}
-taskList.target.classList('click', color);
-
 function finalizads(e) {
   let iCompleted = e.target;
   if (iCompleted.classList.contains('completed')) {
@@ -58,13 +79,6 @@ function finalizads(e) {
 }
 taskList.addEventListener('dblclick', finalizads);
 
-rmTaskBtn.addEventListener('click', function() {
-  let checked = window.confirm('Tem certeza que deseja excluir?!');
-  if(checked) {
-    taskList.innerHTML = '';
-    localStorage.removeItem('lista')
-  }
-})
-rmBtn.addEventListener('click', function() {
+rmBtn.addEventListener('click', function () {
   let finalizads = document.querySelectorAll('.completed');
 })

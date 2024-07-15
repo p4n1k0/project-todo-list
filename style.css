@@ -1,9 +1,19 @@
-body {
-    background-color: black;
-    color: #fff;
+* {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    padding: 0;
+}
+
+body {
+    margin-left: 10%;
+    background-color: #c8dff7;
+}
+
+.selectedItem {
+    background-color: rgb(128, 128, 128);
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
 }
 
 header {
@@ -83,12 +93,4 @@ header {
 #btns button {
     background-color: #d5f1e2;
     cursor: pointer;
-}
-
-.set {
-    background-color: rgb(128, 128, 126);
-}
-
-.completed {
-    text-decoration: line-through solid rgb(0, 0, 0);
 }
