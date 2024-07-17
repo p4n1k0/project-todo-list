@@ -10,27 +10,27 @@
 </head>
 
 <body>
-    <header>
-        Minha Lista de Tarefas
-    </header>
-    <p id="funcionamento">
-        Clique duas vezes em um item para marcá-lo como completo
-    </p>
-    <input id="texto-tarefa">
-    <div>
-        <ol id="lista-tarefas">
-        </ol>
-    </div>
-    <div>
-        <button id="criar-tarefa">
-            Add
-        </button>
-        <button id="apaga-tudo">
-        </button>
-    </div>
-    <script src="script.js">
-    </script>
-
+    <header>Minha Lista de Tarefas</header>
+    <main>
+        <section>
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+        </section>
+        <section>
+            <input type="text" name="nova-tarefa" id="texto-tarefa" placeholder="Adicione uma nova tarefa">
+            <button type="submit" id="criar-tarefa">Adicionar tarefa</button>
+        </section>
+        <section>
+            <ol id="lista-tarefas"></ol>
+        </section>
+        <footer>
+            <button id="apaga-tudo">apaga tudo</button>
+            <button id="remover-finalizados">apaga finalizados</button>
+            <button id="remover-selecionado">remove selecionado</button>
+            <button id="salvar-tarefas">salvar lista</button>
+        </footer>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 
 </html>
