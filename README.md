@@ -1,7 +1,18 @@
+# Boas vindas ao repositório do projeto Lista de Tarefas!
+
+Aqui você vai encontrar os detalhes de como foi estruturado o desenvolvimento do projeto à partir desse repositório.
+
+---
+
 # Sumário
 
 - [Habilidades](#habilidades)
+- [Entregáveis](#entregáveis)
   - [O que foi desenvolvido](#o-que-foi-desenvolvido)
+  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
+  - [Linter](#linter)
+  - [Cypress](#cypress)
+- [Requisitos do projeto](#requisitos-do-projeto)
 
     `Requisitos obrigatórios:`
     - [1 - Adicone à sua lista o título "Minha Lista de Tarefas" em uma tag <header>](#1---adicone-à-sua-lista-o-título-minha-lista-de-tarefas-em-uma-tag-)
@@ -13,7 +24,16 @@
     - [7 - Clicar em um item da lista deve alterar a cor de fundo do item para cinza](#7---clicar-em-um-item-da-lista-deve-alterar-a-cor-de-fundo-do-item-para-cinza)
     - [8 - Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo](#8---não-deve-ser-possível-selecionar-mais-de-um-elemento-da-lista-ao-mesmo-tempo)
     - [9 - Clicar duas vezes em um item, faz com que ele seja riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item](#9---clicar-duas-vezes-em-um-item-ele-deverá-ser-riscado-indicando-que-foi-completo-deve-ser-possível-desfazer-essa-ação-clicando-novamente-duas-vezes-no-item)
-    
+    - [10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista](#10---adicione-um-botão-com-idapaga-tudo-que-quando-clicado-deve-apagar-todos-os-itens-da-lista)
+    - [11 - Adicione um botão com id="remover-finalizados" que quando clicado remove **somente** os elementos finalizados da sua lista](#11---adicione-um-botão-com-idremover-finalizados-que-quando-clicado-remove-somente-os-elementos-finalizados-da-sua-lista)
+
+    `Requisitos bônus:`
+    - [12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava](#12---adicione-um-botão-com-idsalvar-tarefas-que-salve-o-conteúdo-da-lista-se-você-fechar-e-reabrir-a-página-a-lista-deve-continuar-no-estado-em-que-estava)
+    - [13 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas](#13---adicione-dois-botões-um-com-idmover-cima-e-outro-com-idmover-baixo-que-permitam-mover-o-item-selecionado-para-cima-ou-para-baixo-na-lista-de-tarefas)
+    - [14 - Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado](#14---adicione-um-botão-com-idremover-selecionado-que-quando-clicado-remove-o-item-selecionado)
+- [Depois de terminar o desenvolvimento](#depois-de-terminar-o-desenvolvimento)
+- [Revisando um pull request](#revisando-um-pull-request)
+- [Avisos Finais](#avisos-finais)
 
 # Habilidades
 
@@ -25,13 +45,73 @@
 
 ## O que foi desenvolvido
 
-- Desenvolvimento de uma lista de tarefas usando `HTML`, `CSS` e `JavaScript`.
+- Foi desenvolvido uma lista de tarefas usando `HTML`, `CSS` e `JavaScript`.
 
 ---
 
-# Requisitos do projeto
+### 🗒ANTES DE COMEÇAR A DESENVOLVER:
+
+1. Clone o repositório
+  * `git clone git@github.com:p4n1k0/project-todo-list.git`
+  * Entre na pasta do repositório que você acabou de clonar:
+    * `cd project-todo-list`
+
+2. Instale as dependências e inicialize o projeto
+  * Instale as dependências:
+    * `npm install`
 
 ---
+
+
+## Linter
+
+Para garantir a qualidade do código, vamos utilizar neste projeto os linters `ESLint` e `StyleLint`.
+Assim o código estará alinhado com as boas práticas de desenvolvimento, sendo mais legível
+e de fácil manutenção! Para rodá-los localmente no projeto, execute os comandos abaixo:
+
+```bash
+npm run lint
+npm run lint:styles
+```
+
+Quando é executado o comando `npm run lint:styles`, ele irá avaliar se os arquivos com a extensão `CSS` estão com o padrão correto.
+
+Quando é executado o comando `npm run lint`, ele irá avaliar se os arquivos com a extensão `JS` e `JSX` estão com o padrão correto.
+
+---
+
+## Cypress
+
+Cypress é uma ferramenta de teste de front-end desenvolvida para a web.
+Você pode rodar o cypress localmente para verificar se seus requisitos estão passando, para isso execute o um dos seguintes comandos:
+
+Para executar os testes apenas no terminal:
+
+```bash
+npm test
+```
+
+Para executar os testes e vê-los rodando em uma janela de navegador:
+
+```bash
+npm run cypress:open
+```
+
+***ou***
+
+```bash
+npx cypress open
+```
+
+Após executar um dos dois comandos acima, será aberta uma janela de navegador e então basta clicar no nome do arquivo de teste que quiser executar (project.spec.js), ou para executar todos os testes clique em Run all specs
+
+Você também pode assistir a [este](https://vimeo.com/539240375/a116a166b9) vídeo 😉🎙
+
+**Para rodar o cypress é preciso ter rodado o comando npm install anteriormente.**
+
+---
+
+## Requisitos Obrigatórios:
 
 ### 1 - Adicione à sua lista o título "Minha Lista de Tarefas" em uma tag <header>
 
@@ -105,4 +185,69 @@
 
 - Será verificado que, com um segundo duplo clique, um elemento completo deixa de sê-lo
 
-// README BASEADO NO DA TRYBE
+### 10 - Adicione um botão com id="apaga-tudo" que quando clicado deve apagar todos os itens da lista
+
+**O que será verificado:**
+
+- Será verificado que existe um elemento `button` com o id `apaga-tudo`
+
+- Será verificado que, dado que uma lista possui tarefas, um clique no botão a deixa vazia
+
+### 11 - Adicione um botão com id="remover-finalizados" que quando clicado remove **somente** os elementos finalizados da sua lista
+
+**O que será verificado:**
+
+- Será verificado que existe um elemento `button` com o id `remover-finalizados`
+
+- Será verificado que, ao clicar no botão, todos os elementos marcados como feitos são removidos da lista
+
+## BÔNUS
+
+### 12 - Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
+
+**O que será verificado:**
+
+- Será verificado que existe um elemento `button` com o id `salvar-tarefas`
+
+- Será verificado que, quando a lista tiver vários elementos, alguns dos quais marcados como finalizados, um recarregamento da página mantém a lista exatamente como está.
+
+### 13 - Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
+
+    Pontos importantes sobre este requisito bônus:
+
+    * Antes de começar a desenvolver essa funcionalidade, pare e pense. O que significa mover um item de uma lista para cima ou para baixo no **_DOM_**? Você já possui todas as habilidades necessárias para fazer isso.
+
+    * Habitue-se a pensar nos casos especiais ao construir programas. O que acontece se o usuário tentar mover o primeiro item para cima ou o último para baixo?
+
+**O que será verificado:**
+
+- Será verificada a existência de dois elementos `button`, um com o id `mover-cima` e o outro com o id `mover-baixo`
+
+- Será verificado que, dado que diversos elementos foram acrescentados à lista, movimentá-los de formas diversas os deixa nas posições esperadas
+
+- Será verificado que, caso algum elemento esteja finalizado, este status deve persistir ainda que se mova o elemento
+
+- Será verificado que, caso nenhum elemento esteja selecionado, clicar nos botões não altera a lista
+
+- Será verificado que um elemento que esteja selecionado deve se manter selecionado mesmo depois de movido
+
+- _Caso especial!_ Será verificado que, caso se tente subir o elemento no topo da lista ou, caso se tente descer o último elemento da lista, esta não deve ser alterada
+
+### 14 - Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado
+
+**O que será verificado:**
+
+- Será verificada a presença de um elemento `button` com um id `remover-selecionado`
+
+- Será verificado que, no clicar no botão, somente o elemento selecionado é removido
+
+---
+---
+
+
+
+Link: [FORMULÁRIO DE AVALIAÇÃO DE PROJETO](https://be-trybe.typeform.com/to/ZTeR4IbH)
+
+O avaliador automático não necessariamente avalia seu projeto na ordem em que os requisitos aparecem no readme. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?
+
+---
