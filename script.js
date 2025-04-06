@@ -8,6 +8,7 @@ const svBtn = document.getElementById('salvar-tarefas');
 let rmFinBtn = document.getElementById('remover-finalizados');
 const rmSelectedBtn = document.getElementById('remover-selecionado')
 const mvUpBtn = document.getElementById('mover-cima');
+const mvDownBtn = document.getElementById('mover-baixo');
 
 
 rmTasksBtn.addEventListener('click', function () {
@@ -29,11 +30,8 @@ function clickTask(click) {
 }
 
 function lineTask(click) {
-  if (click.target.classList.contains('completed')) {
-    click.target.classList.remove('completed');
-  } else {
-    click.target.classList.add('completed');
-  }
+  if (click.target.classList.contains('completed')) click.target.classList.remove('completed');
+  else click.target.classList.add('completed');
 }
 
 // Fonte clickTask e lineTask Luis Castro trybe
@@ -60,12 +58,8 @@ taskList.addEventListener('click', (event) => {
 
 taskList.addEventListener('dblclick', (e) => {
   const selectedTask = e.target;
-
-  if (e.target.className === 'tarefa') {
-    selectedTask.className += 'completed';
-  } else if (e.target.className === 'tarefa completed') {
-    selectedTask.className = 'tarefa';
-  }
+  if (e.target.className === 'tarefa') selectedTask.className += 'completed';
+  else if (e.target.className === 'tarefa completed') selectedTask.className = 'tarefa';
 });
 
 rmFinBtn.addEventListener('click', function () {
@@ -83,11 +77,8 @@ rmSelectedBtn.addEventListener('click', () => {
 
 function finalizads(e) {
   const iCompleted = e.target;
-  if (iCompleted.classList.contains('completed')) {
-    e.target.classList.remove('completed');
-  } else {
-    e.target.classList.add('completed');
-  }
+  if (iCompleted.classList.contains('completed')) e.target.classList.remove('completed');
+  else e.target.classList.add('completed');
 }
 taskList.addEventListener('dbclick', finalizads);
 
@@ -96,17 +87,41 @@ function saveTask() {
   localStorage.setItem('tasks', tasks)
 }
 
+svBtn.addEventListener('click', saveTask);
+
 function initRenderization() {
-  if (localStorage.getItem('tasks') === null) {
-    localStorage.setItem('tasks', '');
-  } else {
+  if (localStorage.getItem('tasks') === null) localStorage.setItem('tasks', '');
+  else {
     const taskStorage = localStorage.getItem('tasks');
     taskList.innerHTML = taskStorage;
   }
 }
 
-svBtn.addEventListener('click', saveTask);
-
 window.onload = () => {
   initRenderization();
 }
+
+
+const listItens = taskList.children;
+function moveUp() {
+  const item = document.querySelector('.selectedItem');
+  let ind;
+  if (item === null || item === taskList.childNodes[0]) return;
+  for (let i = 0; i < listItens.length; i += 1) {
+    if (item === listItens[i]) ind = i;
+  }
+  taskList.insertBefore(taskList.childNodes[ind], taskList.childNodes[ind - 1]);
+}
+mvUpBtn.addEventListener('click', moveUp);
+
+function moveDown() {
+  const item = document.querySelector('.selectedItem');
+  const index = listItens.length - 1;
+  let ind;
+  if (item === null || item === taskList.childNodes[index]) return;
+  for (let i = 0; i < listItens.length; i += 1) {
+    if (item === listItens[i]) ind = i;
+  }
+  taskList.insertBefore(taskList.childNodes[ind + 1], taskList.childNodes[ind]);
+}
+mvDownBtn.addEventListener('click', moveDown);
