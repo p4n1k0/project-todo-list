@@ -7,9 +7,8 @@ Aqui você vai encontrar os detalhes de como foi estruturado o desenvolvimento d
 # Sumário
 
 - [Habilidades](#habilidades)
-- [Entregáveis](#entregáveis)
-  - [O que foi desenvolvido](#o-que-foi-desenvolvido)
-  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
+- [O que foi desenvolvido](#o-que-foi-desenvolvido)
+- [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
 
 
 # Habilidades
